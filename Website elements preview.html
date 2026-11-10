@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Website elements preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config={theme:{extend:{colors:{bg:'var(--bg)',sf:'var(--sf)',ink:'var(--ink)',mu:'var(--mu)',ac:'var(--ac)',ln:'var(--ln)'},fontFamily:{sans:['Manrope','system-ui','Segoe UI','Arial','sans-serif']}}}}
+</script>
+<style>
+:root{--bg:#F5F7FB;--sf:#FFFFFF;--ink:#0F1B2D;--mu:#55627A;--ac:#2F5BFF;--ln:#DCE2EE;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1120;--sf:#141C30;--ink:#E8EDF7;--mu:#9AA7C0;--ac:#7C9BFF;--ln:#263150;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B1120;--sf:#141C30;--ink:#E8EDF7;--mu:#9AA7C0;--ac:#7C9BFF;--ln:#263150;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+body{background:var(--bg);color:var(--ink)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+.slide{transition:transform .6s ease-in-out;will-change:transform}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+summary::-webkit-details-marker{display:none}
+details[open] .chev{transform:rotate(180deg)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<header class="sticky z-50 border-b border-ln bg-bg/95 backdrop-blur" style="top:env(safe-area-inset-top,0px)">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+    <a href="#top" class="text-lg font-extrabold">Your Company</a>
+    <nav class="flex gap-1 overflow-x-auto text-sm font-medium text-mu" aria-label="Sections">
+      <a class="whitespace-nowrap rounded px-3 py-2 hover:text-ink" href="#about">About</a>
+      <a class="whitespace-nowrap rounded px-3 py-2 hover:text-ink" href="#services">Services</a>
+      <a class="whitespace-nowrap rounded px-3 py-2 hover:text-ink" href="#gallery">Gallery</a>
+      <a class="whitespace-nowrap rounded px-3 py-2 hover:text-ink" href="#team">Team</a>
+      <a class="whitespace-nowrap rounded px-3 py-2 hover:text-ink" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="mx-auto max-w-6xl px-5 pt-8">
+  <p class="max-w-2xl text-mu">This is a sample page showing the sections your website can include. Text and colours are placeholders. Each block carries a tag naming the element, so you can tell us which ones you want.</p>
+</div>
+
+<!-- Hero slideshow -->
+<section class="mx-auto max-w-6xl px-5 py-8" aria-label="Slideshow">
+  <span class="mb-3 inline-block rounded-full border border-ln bg-sf px-3 py-1 text-xs font-bold text-mu">Element: Slideshow / hero banner</span>
+  <div id="show" class="relative h-[26rem] overflow-hidden rounded-2xl text-white sm:h-[30rem]">
+    <div class="slide absolute inset-0 flex flex-col justify-end p-7 sm:p-12" style="background:linear-gradient(135deg,#1E3A8A,#2F5BFF)">
+      <h1 class="max-w-xl text-3xl font-extrabold leading-tight sm:text-5xl">Say what you do in one clear line</h1>
+      <p class="mt-3 max-w-lg text-white/85">A short supporting sentence about your business and who it helps.</p>
+      <a href="#contact" class="mt-6 w-fit rounded-lg bg-white px-5 py-3 font-bold text-[#1E3A8A]">Get a quote</a>
+    </div>
+    <div class="slide absolute inset-0 flex flex-col justify-end p-7 sm:p-12" style="background:linear-gradient(135deg,#065F46,#10B981)">
+      <h2 class="max-w-xl text-3xl font-extrabold leading-tight sm:text-5xl">Highlight a service or offer</h2>
+      <p class="mt-3 max-w-lg text-white/90">Use a real photo or video behind the text on your live site.</p>
+      <a href="#services" class="mt-6 w-fit rounded-lg bg-white px-5 py-3 font-bold text-[#065F46]">See services</a>
+    </div>
+    <div class="slide absolute inset-0 flex flex-col justify-end p-7 sm:p-12" style="background:linear-gradient(135deg,#7C2D12,#F97316)">
+      <h2 class="max-w-xl text-3xl font-extrabold leading-tight sm:text-5xl">Announce news or an event</h2>
+      <p class="mt-3 max-w-lg text-white/90">New launch, sale, award or an upcoming date.</p>
+      <a href="#about" class="mt-6 w-fit rounded-lg bg-white px-5 py-3 font-bold text-[#7C2D12]">Read more</a>
+    </div>
+    <button id="prev" class="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/35 px-3 py-2 text-xl" aria-label="Previous slide">‹</button>
+    <button id="next" class="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/35 px-3 py-2 text-xl" aria-label="Next slide">›</button>
+    <div id="dots" class="absolute right-6 top-5 flex gap-2"></div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="mx-auto grid max-w-6xl gap-8 px-5 py-12 md:grid-cols-2 md:items-center">
+  <div>
+    <span class="mb-3 inline-block rounded-full border border-ln bg-sf px-3 py-1 text-xs font-bold text-mu">Element: About us</span>
+    <h2 class="text-3xl font-extrabold">Our story, in a few honest paragraphs</h2>
+    <p class="mt-4 max-w-prose text-mu">Founded in 20XX, we started with a simple goal: do the job properly and treat customers fairly. Add your mission, your values and what makes you different here.</p>
+    <ul class="mt-5 space-y-2 text-mu">
+      <li><b class="text-ink">Mission:</b> one sentence on why you exist.</li>
+      <li><b class="text-ink">Vision:</b> where you want to be in five years.</li>
+      <li><b class="text-ink">Values:</b> three words customers will recognise.</li>
+    </ul>
+  </div>
+  <div class="aspect-[4/3] rounded-2xl border border-ln bg-sf p-6 text-sm text-mu">
+    <div class="flex h-full items-center justify-center rounded-xl" style="background:repeating-linear-gradient(45deg,var(--ln) 0 10px,transparent 10px 20px)"><span class="rounded bg-sf px-3 py-1">Office or team photo goes here</span></div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="mx-auto max-w-6xl px-5 py-6">
+  <span class="mb-3 inline-block rounded-full border border-ln bg-sf px-3 py-1 text-xs font-bold text-mu">Element: Achievements counters</span>
+  <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+    <div class="rounded-xl border border-ln bg-sf p-5"><div class="text-4xl font-extrabold text-ac"><span data-n="500">0</span>+</div><div class="mt-1 text-mu">Happy clients</div></div>
+    <div class="rounded-xl border border-ln bg-sf p-5"><div class="text-4xl font-extrabold text-ac"><span data-n="12">0</span></div><div class="mt-1 text-mu">Years of experience</div></div>
+    <div class="rounded-xl border border-ln bg-sf p-5"><div class="text-4xl font-extrabold text-ac"><span data-n="850">0</span>+</div><div class="mt-1 text-mu">Projects delivered</div></div>
+    <div class="rounded-xl border border-ln bg-sf p-5"><div class="text-4xl font-extrabold text-ac"><span data-n="25">0</span></div><div class="mt-1 text-mu">Team members</div></div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="mx-auto max-w-6xl px-5 py-12">
+  <span class="mb-3 inline-block rounded-full border border-ln bg-sf px-3 py-1 text-xs font-bold text-mu">Element: Services / products</span>
+  <h2 class="text-3xl font-extrabold">What we offer</h2>
+  <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <article class="rounded-xl border border-ln bg-sf p-6"><div class="mb-3 grid h-10 w-10 place-items-center rounded-lg bg-ac text-white font-bold">A</div><h3 class="font-bold">Service one</h3><p class="mt-2 text-mu">Two lines on what the customer gets and why it matters.</p><a class="mt-3 inline-block font-bold text-ac" href="#contact">Learn more</a></article>
+    <article class="rounded-xl border border-ln bg-sf p-6"><div class="mb-3 grid h-10 w-10 place-items-center rounded-lg bg-ac text-white font-bold">B</div><h3 class="font-bold">Service two</h3><p class="mt-2 text-mu">Two lines on what the customer gets and why it matters.</p><a class="mt-3 inline-block font-bold text-ac" href="#contact">Learn more</a></article>
+    <article class="rounded-xl border border-ln bg-sf p-6"><div class="mb-3 grid h-10 w-10 place-items-center rounded-lg bg-ac text-white font-bold">C</div><h3 class="font-bold">Service three</h3><p class="mt-2 text-mu">Two lines on what the customer gets and why it matters.</p><a class="mt-3 inline-block font-bold text-ac" href="#contact">Learn more</a></article>
+  </div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery" class="mx-auto max-w-6xl px-5 py-12">
+  <span class="mb-3 inline-block rounded-full border border-ln bg-sf px-3 py-1 text-xs font-bold text-mu">Element: Portfolio / gallery with filters</span>
+  <h2 class="text-3xl font-extrabold">Our work</h2>
+  <div id="filters" class="mt-4 flex flex-wrap gap-2 text-sm font-bold">
+    <button data-f="all" class="rounded-full bg-ac px-4 py-2 text-white">All</button>
+    <button data-f="projects" class="rounded-full border border-ln bg-sf px-4 py-2">Projects</button>
+    <button data-f="events" class="rounded-full border border-ln bg-sf px-4 py-2">Events</button>
+  </div>
+  <div id="grid" class="mt-5 grid grid-cols-2 gap-3 md:grid-cols-4">
+    <div data-c="projects" class="grid aspect-square place-items-center rounded-xl text-sm font-bold text-white" style="background:#2F5BFF">Project 1</div>
+    <div data-c="events" class="grid aspect-square place-items-center rounded-xl text-sm font-bold text-white" style="background:#0F766E">Event 1</div>
+    <div data-c="projects" class="grid aspect-square place-items-center rounded-xl text-sm font-bold text-white" style="background:#7C3AED">Project 2</div>
+    <div data-c="events" class="grid aspect-square place-items-center rounded-xl text-sm font-bold text-white" style="background:#B45309">Event 2</div>
+    <div data-c="projects" class="grid aspect-square place-items-center rounded-xl text-sm font-bold text-white" style="background:#BE185D">Project 3</div>
+    <div data-c="projects" class="grid aspect-square place-items-center rounded-xl text-sm font-bold text-white" style="background:#1D4ED8">Project 4</div>
+    <div data-c="events" class="grid aspect-square place-items-center rounded-xl text-sm font-bold text-white" style="background:#047857">Event 3</div>
+    <div data-c="projects" class="grid aspect-square place-items-center rounded-xl text-sm font-bold text-white" style="background:#9333EA">Project 5</div>
+  </div>
+</section>
+
+<!-- Team -->
+<section id="team" class="mx-auto max-w-6xl px-5 py-12">
+  <span class="mb-3 inline-block rounded-full border border-ln bg-sf px-3 py-1 text-xs font-bold text-mu">Element: Meet the team</span>
+  <h2 class="text-3xl font-extrabold">The people behind the work</h2>
+  <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="rounded-xl border border-ln bg-sf p-5 text-center"><div class="mx-auto grid h-20 w-20 place-items-center rounded-full bg-ac text-2xl font-extrabold text-white">AK</div><h3 class="mt-3 font-bold">Full Name</h3><p class="text-sm text-mu">Founder and CEO</p><p class="mt-2 text-sm text-mu">One line about experience.</p></div>
+    <div class="rounded-xl border border-ln bg-sf p-5 text-center"><div class="mx-auto grid h-20 w-20 place-items-center rounded-full bg-[#0F766E] text-2xl font-extrabold text-white">RS</div><h3 class="mt-3 font-bold">Full Name</h3><p class="text-sm text-mu">Operations Head</p><p class="mt-2 text-sm text-mu">One line about experience.</p></div>
+    <div class="rounded-xl border border-ln bg-sf p-5 text-center"><div class="mx-auto grid h-20 w-20 place-items-center rounded-full bg-[#B45309] text-2xl font-extrabold text-white">MP</div><h3 class="mt-3 font-bold">Full Name</h3><p class="text-sm text-mu">Lead Designer</p><p class="mt-2 text-sm text-mu">One line about experience.</p></div>
+    <div class="rounded-xl border border-ln bg-sf p-5 text-center"><div class="mx-auto grid h-20 w-20 place-items-center rounded-full bg-[#BE185D] text-2xl font-extrabold text-white">NJ</div><h3 class="mt-3 font-bold">Full Name</h3><p class="text-sm text-mu">Customer Success</p><p class="mt-2 text-sm text-mu">One line about experience.</p></div>
+  </div>
+</section>
+
+<!-- Testimonials + clients -->
+<section class="mx-auto max-w-6xl px-5 py-12">
+  <span class="mb-3 inline-block rounded-full border border-ln bg-sf px-3 py-1 text-xs font-bold text-mu">Element: Testimonials</span>
+  <h2 class="text-3xl font-extrabold">What our clients say</h2>
+  <figure class="mt-6 rounded-2xl p-8 text-white sm:p-10" style="background:linear-gradient(135deg,#1E3A8A,#2F5BFF)"><blockquote class="max-w-3xl text-xl font-bold leading-snug sm:text-2xl">“Write a longer, standout testimonial here: the problem the client had, what you did for them, and the result they saw.”</blockquote><figcaption class="mt-5 flex items-center gap-3"><span class="grid h-11 w-11 place-items-center rounded-full bg-white/20 font-extrabold">JD</span><span><b>Client Name</b><br><span class="text-sm text-white/80">Role, Company</span></span></figcaption></figure>
+  <div class="mt-4 grid gap-4 md:grid-cols-3">
+    <blockquote class="rounded-xl border border-ln bg-sf p-6"><p class="text-mu">“A short, specific line about the result the customer got.”</p><footer class="mt-4 text-sm font-bold">Client Name, Company</footer></blockquote>
+    <blockquote class="rounded-xl border border-ln bg-sf p-6"><p class="text-mu">“Another customer comment, ideally with a number or outcome.”</p><footer class="mt-4 text-sm font-bold">Client Name, Company</footer></blockquote>
+    <blockquote class="rounded-xl border border-ln bg-sf p-6"><p class="text-mu">“A third voice to build trust with new visitors.”</p><footer class="mt-4 text-sm font-bold">Client Name, Company</footer></blockquote>
+    <blockquote class="rounded-xl border border-ln bg-sf p-6"><p class="text-mu">“Mention how easy you were to work with, and how the project finished on time.”</p><footer class="mt-4 text-sm font-bold">Client Name, Company</footer></blockquote>
+    <blockquote class="rounded-xl border border-ln bg-sf p-6"><p class="text-mu">“A comment about quality or after-sales support that makes a new visitor feel safe.”</p><footer class="mt-4 text-sm font-bold">Client Name, Company</footer></blockquote>
+    <blockquote class="rounded-xl border border-ln bg-sf p-6"><p class="text-mu">“A result with a number, such as faster delivery or higher sales.”</p><footer class="mt-4 text-sm font-bold">Client Name, Company</footer></blockquote>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="mx-auto grid max-w-6xl gap-6 px-5 py-12 md:grid-cols-2">
+  <div>
+    <span class="mb-3 inline-block rounded-full border border-ln bg-sf px-3 py-1 text-xs font-bold text-mu">Element: Contact us</span>
+    <h2 class="text-3xl font-extrabold">Talk to us</h2>
+    <p class="mt-3 text-mu">Phone, email, address and a WhatsApp button sit next to the form.</p>
+    <div class="mt-5 grid h-44 place-items-center rounded-xl border border-dashed border-ln text-sm font-bold text-mu">Google Map embed</div>
+  </div>
+  <div class="rounded-xl border border-ln bg-sf p-6">
+    <div class="space-y-4">
+      <div><label for="n" class="text-sm font-bold">Name</label><input id="n" class="mt-1 w-full rounded-lg border border-ln bg-bg px-3 py-2" placeholder="Your name"></div>
+            <div><label for="m" class="text-sm font-bold">Message</label><textarea id="m" rows="3" class="mt-1 w-full rounded-lg border border-ln bg-bg px-3 py-2" placeholder="How can we help?"></textarea></div>
+      <button type="button" id="send" class="w-full rounded-lg bg-ac px-5 py-3 font-bold text-white" style="color:#fff">Send message</button>
+      <p id="ok" class="hidden text-sm font-bold text-ac">This is a demo form, so nothing was sent.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="border-t border-ln bg-sf">
+  <div class="mx-auto flex max-w-6xl flex-col gap-4 px-5 py-8 text-sm text-mu sm:flex-row sm:justify-between">
+    <div><b class="text-ink">Your Company</b><p class="mt-1">Element: Footer with links, contact details and social icons.</p></div>
+    <div class="flex gap-4"><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a></div>
+    <p>© 2026 Your Company</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var s=[].slice.call(document.querySelectorAll('#show .slide')),i=0,t,d=document.getElementById('dots');
+  s.forEach(function(_,k){var b=document.createElement('button');b.className='h-2.5 w-2.5 rounded-full bg-white/50';b.setAttribute('aria-label','Slide '+(k+1));b.onclick=function(){go(k)};d.appendChild(b)});
+  function go(n){i=(n+s.length)%s.length;s.forEach(function(e,k){e.style.transform='translateX('+((k-i)*100)+'%)';d.children[k].style.background=k===i?'#fff':'rgba(255,255,255,.5)'});clearInterval(t);t=setInterval(function(){go(i+1)},5000)}
+  document.getElementById('prev').onclick=function(){go(i-1)};
+  document.getElementById('next').onclick=function(){go(i+1)};
+  go(0);
+  var x0=null,sh=document.getElementById('show');
+  sh.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  sh.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>40)go(i+(dx<0?1:-1))});
+  var nums=document.querySelectorAll('[data-n]');
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);var el=e.target,end=+el.dataset.n,st=null;
+    function f(ts){st=st||ts;var p=Math.min((ts-st)/1200,1);el.textContent=Math.round(end*p);if(p<1)requestAnimationFrame(f)}requestAnimationFrame(f)})});
+  nums.forEach(function(n){io.observe(n)});
+  document.getElementById('filters').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var f=b.dataset.f;
+    [].forEach.call(this.children,function(x){var on=x===b;x.className='rounded-full px-4 py-2 '+(on?'bg-ac text-white':'border border-ln bg-sf')});
+    [].forEach.call(document.getElementById('grid').children,function(c){c.style.display=(f==='all'||c.dataset.c===f)?'':'none'})});
+  document.getElementById('send').onclick=function(){document.getElementById('ok').classList.remove('hidden')};
+})();
+</script>
+</body>
+</html>
